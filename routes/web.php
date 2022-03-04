@@ -30,7 +30,12 @@ Route::get('/', function () {
 
 //    dd($user->images);
 //    dd($post->user->images);
-
+//foreach ($post->statuses as $s){
+//
+//    foreach ($s->messages as $m){
+//        var_dump($m->message);
+//    }
+//}
     return view('index', compact('post'));
 
 });

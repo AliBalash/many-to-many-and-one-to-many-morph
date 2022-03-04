@@ -61,7 +61,7 @@
 
             <td>
                 @foreach($post->images as $image)
-                    {{$image->image}}
+                    {{$image->image}}|{{$image->created_at}}
                     <br>
                 @endforeach
             </td>
@@ -70,6 +70,25 @@
             <td>{{$status->status}}</td>
             <td>{{$status->comment}}</td>
             <td>{{$status->date}}</td>
+
+            <td>
+                @foreach($post->statuses as $s)
+                    @foreach($s->messages as $m)
+                        @if($m->user_id == 10)
+                            <div style="border: 1px solid red;background-color: #6b7280;color: white">
+                                {{$m->message}}|{{$m->user->name}}
+                            </div>
+                            <br>
+                        @else
+                            <div style="border: 1px solid red;background-color: #edf2f7;color: black">
+
+                                {{$m->message}}|{{$m->user->name}}
+                            </div>
+                        @endif
+                    @endforeach
+                @endforeach
+            </td>
+
 
         </tr>
     @endforeach
